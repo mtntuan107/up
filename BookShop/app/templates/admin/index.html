@@ -1,0 +1,22 @@
+{% extends 'admin/base.html' %}
+
+{% block body %}
+{% if current_user.is_authenticated %}
+<h1>Welcome {{ current_user.name }} to administrator website </h1>
+{% else %}
+<h1 class="text-center text-danger">Login to administator dashboard</h1>
+<form method="post" action ="">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <input class="btn btn-danger mt-3" type="submit" value="Login">
+
+</form>
+{% endif %}
+{% endblock %}
+
